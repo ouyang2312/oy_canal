@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.oy</groupId>
+    <artifactId>oy_canal</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>oy_canal</name>
+    <description>oy_canal</description>
+
+    <properties>
+        <java.version>8</java.version>
+        <spring-boot.version>2.3.6.RELEASE</spring-boot.version>
+        <lombok>1.18.16</lombok>
+        <canal.client>1.1.8</canal.client>
+    </properties>
+
+    <!--依赖管理器-->
+    <dependencyManagement>
+        <dependencies>
+            <!-- 用 BOM 代替 parent，管理 SpringBoot 相关依赖版本 -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!--lombok-->
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba.otter</groupId>
+                <artifactId>canal.client</artifactId>
+                <version>${canal.client}</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/com.alibaba.otter/canal.protocol -->
+            <dependency>
+                <groupId>com.alibaba.otter</groupId>
+                <artifactId>canal.protocol</artifactId>
+                <version>${canal.client}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+
+    <dependencies>
+        <!-- 配置提示处理器，optional=true 不会传递给引入方 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <!-- 自动配置 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-autoconfigure</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba.otter</groupId>
+            <artifactId>canal.client</artifactId>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.alibaba.otter/canal.protocol -->
+        <dependency>
+            <groupId>com.alibaba.otter</groupId>
+            <artifactId>canal.protocol</artifactId>
+        </dependency>
+    </dependencies>
+
+</project>
